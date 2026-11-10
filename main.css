@@ -1,59 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
+/* Theme palette: warm maroon + gold */
+:root {
+    --bg-deep: #1a0a0e;       /* near-black maroon */
+    --maroon-dark: #3d0f1a;
+    --maroon: #6b1a2b;
+    --maroon-bright: #8c2337;
+    --gold: #c9a24a;
+    --gold-light: #e6c77a;
+    --cream: #f3e6cf;
+    --cream-muted: #d9c4a6;   /* secondary text */
+    --muted: #a8906f;         /* dates, captions */
+    --card: #260d14;          /* page content panels */
+    --card-raised: #34131c;   /* cards sitting on a panel */
+    --line: rgba(201, 162, 74, 0.3); /* thin gold borders */
+    --ink: #2b1418;           /* dark text on light surfaces */
+}
 
+a {
+    color: var(--gold-light);
+}
+a:hover {
+    color: var(--cream);
+}
 
-body { 
+body {
     font-family: 'Lora', serif;
-    background: #fff5f8;
-    ; 
-    color: #333;
+    background: radial-gradient(ellipse at top, var(--maroon-dark), var(--bg-deep) 70%) fixed;
+    background-color: var(--bg-deep);
+    color: var(--cream);
     margin: 0;
     padding: 0;
     animation: fadeIn 1.0s ease-in-out;
 }
 h1 {
     font-family: 'Great Vibes', cursive;
-    color: #000000;
+    color: var(--gold-light);
     font-size: clamp(32px, 9vw, 75pt);
     margin: 0;
     font-weight: 500;
     font-style: italic;
     letter-spacing: clamp(2px, 1vw, 7px);
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5), 0px 0px 10px rgba(255, 128, 225, 0.7); /* Subtle black and pink shadow */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0px 0px 14px rgba(201, 162, 74, 0.45); /* Deep shadow with gold glow */
 }
 .subtitle {
     font-family:'Lora', serif;
     font-style: italic;
-    color:#000000;
+    color: var(--gold);
     margin: 0px;
 }
 header {
-    color: #FFFFFF;
+    color: var(--cream);
     text-align: center;
     padding-top: 20px;
     padding-bottom: 0px;
     min-height: 100px;
 }
 nav {
-    background: radial-gradient(circle, #F6C6D7, #fff5f8); /* Soft gradient towards the middle */
+    background: radial-gradient(circle, var(--maroon), var(--bg-deep)); /* Maroon glow towards the middle */
+    border-top: 1px solid rgba(201, 162, 74, 0.5);
+    border-bottom: 1px solid rgba(201, 162, 74, 0.5);
     padding: 5px;
     text-align: center;
 }
 nav a {
-    color: #000000;
+    color: var(--gold-light);
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
+    letter-spacing: 1px;
     transition: color 0.3s ease-in-out; /* Smooth transition for color */
 }
 
 nav a:hover {
-    color: #fff5f8;
+    color: var(--cream);
 }
 .container {
-    background-color: #fff5f8 ;
-    color: #333333; /* Use dark text for readability */
+    background-color: transparent;
+    color: var(--cream);
     margin: auto;
 }
 .Welcome p {
@@ -66,8 +91,9 @@ nav a:hover {
 }
 
 footer {
-    background: radial-gradient(circle, #F6C6D7, #fff5f8); /* Soft gradient towards the middle */
-    color: #000000;
+    background: radial-gradient(circle, var(--maroon), var(--bg-deep)); /* Maroon glow towards the middle */
+    border-top: 1px solid rgba(201, 162, 74, 0.5);
+    color: var(--gold-light);
     text-align: center;
     padding: 10px;
     margin: auto;

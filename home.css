@@ -6,8 +6,9 @@
     max-width: 800px; /* Set the max width to 800px, or adjust as needed */
     margin: 0px auto; /* Center the container */
     padding: 0px;
-    background: #fdf8fa; /* Same background color as the blog posts */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    background: var(--card); /* Same background color as the blog posts */
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); /* Shadow for depth */
     width: 50%; /* Set the container width to 50% of the screen */
     overflow: hidden;
 }
@@ -55,6 +56,7 @@
 }
 h3 {
 margin-left: 10px;
+color: var(--gold-light);
 }
 
 .interest-grid {
@@ -67,20 +69,22 @@ margin-left: 10px;
 .interest-grid span {
   margin-left: 10px;
   margin-right: 10px;
-  background: #fff5f8;
-  border: 1px solid #f2d4df;
+  background: var(--card-raised);
+  border: 1px solid var(--line);
+  color: var(--cream);
   padding: 10px 14px;
   border-radius: 12px;
   font-family: 'Lora', serif;
   font-weight: bold;
   font-size: 15px;
   display: block;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .interest-grid span:hover {
   transform: translateY(-3px);
+  border-color: var(--gold);
 }
 
 
