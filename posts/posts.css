@@ -1,52 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
-body { 
-  font-family: 'Lora', serif;
-  background: #fff5f8; 
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-h1 { 
-  font-family: 'Great Vibes', cursive;
-  color: #000000; 
-  font-size: 75pt;
-  margin: 0;
-  font-weight: normal;
-  font-style: italic;
-  letter-spacing: 7px;
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5), 0px 0px 10px rgba(255, 128, 225, 0.7); /* Subtle black and pink shadow */
-}
-.subtitle {
-  font-family:'Lora', serif;
-  font-style: italic;
-  color:#000000;
-  margin: 0px;
-}
-header {
-  color: #fff5f8;
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 0px;
-  min-height: 100px;
-}
-nav {
-  background-color: #F6C6D7;
-  padding: 5px;
-  text-align: center;
-}
-nav a {
-  color: #000000;
-  text-decoration: none;
-  margin: 0 10px;
-  font-weight: bold;
-  font-family: 'Lora', serif;
-}
-
-nav a:hover {
-  color: #fff5f8;
-}
 .title {
     font-size: 24px;
     font-family: 'Lora', serif;
@@ -82,7 +36,7 @@ nav a:hover {
   
   /* Style the anchor (link) elements inside navbar */
   .blog-navbar a {
-    color: #000000; /* White text */
+    color: var(--gold-light);
     text-decoration: none; /* Remove underline */
     font-size: 16px; /* Adjust font size */
     font-weight: bold;
@@ -94,14 +48,14 @@ nav a:hover {
   
   /* Add hover effect to links */
   .blog-navbar a:hover {
-    color: #fff1dd; /* Gold color for text on hover */
-    background-color: #FAEDEA; /* Dark maroon background on hover */
+    color: var(--cream);
+    background-color: var(--maroon); /* Maroon background on hover */
   }
   
   /* Active Link (for selected topics) */
   .blog-navbar a.active {
-    background-color: #fff1dd; /* Gold background for active topic */
-    color: #FAEDEA; /* Dark maroon text color for active topic */
+    background-color: var(--gold); /* Gold background for active topic */
+    color: var(--bg-deep); /* Dark text for active topic */
   }
   
   /* Blog Post Container */
@@ -109,7 +63,7 @@ nav a:hover {
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background: fdf8fa;
+    background: var(--card);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
   }
@@ -120,7 +74,7 @@ nav a:hover {
   
   /* Blog Post Title */
   .blog-post-title a {
-    color: #333;
+    color: var(--cream);
     font-size: 24px;
     text-decoration: none;
     font-weight: bold;
@@ -128,7 +82,7 @@ nav a:hover {
   }
   
   .blog-post-title a:hover {
-    color: #FAEDEA; /* Change color on hover */
+    color: var(--gold-light); /* Change color on hover */
   }
   
   .firstphoto {
@@ -165,10 +119,12 @@ ul {
     box-sizing: border-box;
     max-width: 800px;
     margin: 0 auto;
-    background-color: #fdf8fa;
+    background-color: var(--card);
+    color: var(--cream);
+    border: 1px solid var(--line);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
   }
 
   /* Title (matches the h1.title element the post layout actually renders -
@@ -179,7 +135,7 @@ ul {
     font-weight: bold;
     font-size: clamp(1.5rem, 6vw, 2.5rem);
     letter-spacing: 0;
-    color: #333;
+    color: var(--gold-light);
     text-shadow: none;
     margin-bottom: 10px;
     line-height: 1.2;
@@ -213,14 +169,14 @@ ul {
   
   .post-date {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--muted);
   }
   
   /* Separator line */
   .separator {
     margin: 20px 0;
     border: 0;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--line);
   }
   .separator1 {
     margin-top: 20px;
@@ -241,7 +197,7 @@ ul {
   
   /* Post content */
   .post-content {
-    color: #555;
+    color: var(--cream-muted);
     font-size: 16px;
     margin: 10px 0;
     font-family: 'Lora', serif;
@@ -249,8 +205,6 @@ ul {
   }
 
   footer {
-    background-color: #F6C6D7;
-    color: #000000;
     text-align: center;
     padding: 10px;
     margin-top: 30px;
