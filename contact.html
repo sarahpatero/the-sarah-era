@@ -13,6 +13,64 @@ stylesheet: /contact.css
   <!-- Right Side: Contact Form -->
   <div class="contact-container">
     <h2>I'd love to hear from you!</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdN_fUvKwanXEHKXYdWTBZrXxL56xejPvuGlo8GGpJW1YYEig/viewform?embedded=true" width="640" height="505" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    <!-- Messages are delivered to Sarah's inbox by FormSubmit (formsubmit.co).
+         GitHub Pages can't send email itself, so the form posts there. -->
+    <form id="contact-form" class="contact-form"
+          action="https://formsubmit.co/spatero@umich.edu" method="POST">
+      <label for="cf-name">Name</label>
+      <input id="cf-name" type="text" name="name" autocomplete="name" required>
+
+      <label for="cf-email">Email</label>
+      <input id="cf-email" type="email" name="email" autocomplete="email" required>
+
+      <label for="cf-message">Message</label>
+      <textarea id="cf-message" name="message" rows="6" required></textarea>
+
+      <!-- FormSubmit settings -->
+      <input type="hidden" name="_subject" value="New message from The Sarah Era">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://thesarahera.co/contact.html?sent=1">
+      <!-- Spam trap: hidden from people, bots fill it in and get dropped -->
+      <input type="text" name="_honey" class="cf-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <button type="submit">Send</button>
+      <p id="cf-status" class="cf-status" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </div>
+
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('cf-status');
+  var button = form.querySelector('button');
+
+  if (new URLSearchParams(location.search).get('sent')) {
+    status.textContent = 'Thank you! Your message was sent.';
+  }
+
+  // Send in the background so visitors stay on the page.
+  // Without JavaScript the form still works and returns here afterwards.
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    button.disabled = true;
+    status.textContent = 'Sending…';
+    fetch('https://formsubmit.co/ajax/spatero@umich.edu', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (!res.ok || String(res.d.success) !== 'true') throw new Error(res.d.message || 'failed');
+        form.reset();
+        status.textContent = 'Thank you! Your message was sent.';
+      })
+      .catch(function () {
+        status.textContent = 'Sorry, that didn’t go through. Please try again in a moment.';
+      })
+      .finally(function () { button.disabled = false; });
+  });
+})();
+</script>

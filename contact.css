@@ -6,6 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 24px;
   padding: 20px;
   max-width: 1200px;
   margin: auto;
@@ -50,10 +51,6 @@
   .contact-section {
     flex-direction: column;
   }
-
-  iframe {
-    height: 500px;
-  }
 }
 
 .contact-container h2 {
@@ -65,11 +62,78 @@
   letter-spacing: 2px;
 }
 
-iframe {
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  font-family: 'Lora', serif;
+}
+
+.contact-form label {
+  color: var(--gold-light);
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
   width: 100%;
-  max-width: 100%;
-  height: 600px;
-  border: none;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 16px; /* 16px stops iPhones zooming in on tap */
+  color: var(--cream);
+  background: var(--card-raised);
+  border: 1px solid var(--line);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(201, 162, 74, 0.25);
+}
+
+.contact-form button {
+  margin-top: 14px;
+  align-self: center;
+  padding: 12px 36px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--ink);
+  background: var(--gold);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover { background: var(--gold-light); transform: translateY(-2px); }
+.contact-form button:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+.cf-status {
+  min-height: 1.4em;
+  text-align: center;
+  color: var(--cream-muted);
+  margin: 4px 0 0;
+}
+
+/* honeypot spam trap: invisible to people */
+.cf-honey {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
 }
