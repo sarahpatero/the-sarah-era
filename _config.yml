@@ -3,7 +3,7 @@ description: Sarah's thought garden.
 url: "https://thesarahera.co"
 
 markdown: kramdown
-permalink: /posts/:title.html
+permalink: /posts/:title
 timezone: America/New_York
 
 exclude:
