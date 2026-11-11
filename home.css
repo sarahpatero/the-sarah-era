@@ -25,7 +25,11 @@
     background-position: center center; /* Keeps images centered */
     background-repeat: no-repeat;
     transition: background-position 0.3s ease-out, height 0.3s ease-out; /* Smooth transitions */
-    background-attachment: fixed;
+    /* scroll (not fixed): a fixed background is sized to the whole browser
+       window, so in this half-width column only the middle of each photo
+       showed. scroll sizes the photo to the column so its full width shows;
+       home.js still shifts background-position for the parallax movement. */
+    background-attachment: scroll;
     min-height: clamp(240px, 50vh, 420px);
 }
 
